@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Willkommen bei Wave Markt</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://cdn.discordapp.com/attachments/1345798817689108593/1362046653195878512/Unbenannt-1.png?ex=6800f84b&is=67ffa6cb&hm=725458fea38b541220fdedcffb05735eb69a20e2e522b48ed96db19371696dae&');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+      filter: brightness(0.7);
+    }
+
+    .header {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin: 0;
+      color: #ffffff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      animation: fadeInDown 2s ease;
+    }
+
+    .discord-button {
+      margin-top: 10px;
+      padding: 10px 25px;
+      font-size: 1rem;
+      background-color: #5865F2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      transition: background-color 0.3s, transform 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .discord-button img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .discord-button:hover {
+      background-color: #404eed;
+      transform: scale(1.05);
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      animation: fadeInDown 1.5s ease forwards;
+      opacity: 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 20px 0;
+      animation: fadeInUp 2s ease forwards;
+      opacity: 0;
+    }
+
+    button {
+      padding: 15px 35px;
+      font-size: 1.2rem;
+      background-color: #00c3ff;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+      animation: fadeInUp 2.5s ease forwards;
+      opacity: 0;
+    }
+
+    button:hover {
+      background-color: #009ed6;
+      transform: scale(1.05);
+    }
+
+    .site-link {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffffffb0;
+      text-decoration: none;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+      transition: color 0.3s;
+    }
+
+    .site-link:hover {
+      color: #ffffff;
+    }
+
+    .credit-left {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffffffb0;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Oben rechts: wavemarket.gg -->
+  <a href="https://wavemarket.gg" class="site-link" target="_blank">wavemarket.gg</a>
+
+  <!-- Oben links: Credit -->
+  <div class="credit-left">Made by kemo x siga</div>
+
+  <!-- Header mit Discord Button -->
+  <div class="header">
+    <h1>🌊 Wave Markt</h1>
+    <button class="discord-button" onclick="window.location.href='https://discord.com/users/1349047051769352256'">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord Icon">
+      <span>Auf unseren Discord</span>
+    </button>
+  </div>
+
+  <div class="content">
+    <h1>Willkommen bei Wave Markt</h1>
+    <p>Bereit für WaveX Produkte?</p>
+    <button id="startBtn" onclick="startRedirect()">🚀 Jetzt starten</button>
+  </div>
+
+  <script>
+    function startRedirect() {
+      const btn = document.getElementById("startBtn");
+      btn.innerText = "🔄 Wird geladen...";
+      btn.disabled = true;
+      btn.style.backgroundColor = "#555";
+
+      setTimeout(() => {
+        window.location.href = "file:///C:/Users/fndiy/Documents/Vs%20Code/index%20liebeso.html";
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>

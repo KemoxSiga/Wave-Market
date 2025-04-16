@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+  <meta charset="UTF-8">
+  <title>Wave Markt – Produkte</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #0f141e;
+      --text: #fff;
+      --card: #1e2a38;
+      --accent: #00c3ff;
+      --highlight: #00ffc3;
+    }
+
+    body.light {
+      --bg: #f5f5f5;
+      --text: #111;
+      --card: #ffffff;
+      --accent: #007ea7;
+      --highlight: #007ea7;
+    }
+
+    body {
+      background: var(--bg) url('https://cdn.discordapp.com/attachments/1319391799030190181/1332010023555170386/K8wOY96.gif?ex=67fe7c01&is=67fd2a81&hm=737766675ef18cacc26f60fc275f65ea67a59cc5049b8cb2ce4cd30db3aebb79&') no-repeat center center fixed;
+      background-size: cover;
+      animation: backgroundAnimation 20s infinite alternate;
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+      min-height: 100vh;
+    }
+
+    @keyframes backgroundAnimation {
+      0% { filter: brightness(0.7) hue-rotate(0deg); }
+      50% { filter: brightness(0.5) hue-rotate(90deg); }
+      100% { filter: brightness(0.7) hue-rotate(180deg); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: var(--card);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.1);
+      text-align: center;
+      transition: background-color 0.5s, transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 18px rgba(0, 255, 255, 0.2);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--highlight);
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    .card button {
+      background-color: var(--accent);
+      border-radius: 10px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    .card button:hover {
+      background-color: #0099cc;
+    }
+
+    .details {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: translateY(-10px);
+      transition: all 0.4s ease;
+      margin-top: 15px;
+    }
+
+    .details.show {
+      max-height: 500px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .details button {
+      background-color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      display: block;
+      width: 100%;
+    }
+
+    .details button:hover {
+      background-color: #007a99;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .discord {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .discord a {
+      background-color: #7289da;
+      padding: 12px 25px;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .discord a:hover {
+      background-color: #5b6eae;
+    }
+
+    .ticket {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: var(--text);
+      font-weight: bold;
+    }
+
+    .ticket button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      background-color: #7289da;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .ticket button:hover {
+      background-color: #5b6eae;
+    }
+  </style>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+    }
+
+    function toggleDetails(id) {
+      const all = document.querySelectorAll('.details');
+      all.forEach(div => {
+        if (div.id !== id) {
+          div.classList.remove('show');
+        }
+      });
+
+      const current = document.getElementById(id);
+      current.classList.toggle('show');
+    }
+  </script>
+</head>
+
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙/☀️</button>
+
+  <h1>Wave Markt</h1>
+
+  <div class="grid">
+    <!-- Produkt A -->
+    <div class="card">
+      <h2>📦 Wave Market</h2>
+      <p>Auswahl für Discord Nitro &amp; Boosts</p>
+      <button onclick="toggleDetails('produktA-details')">📦 Produkt wählen</button>
+      <div id="produktA-details" class="details">
+        <button onclick="window.location.href='produktA-basic.html'">🔹 Nitr0 5€</button>
+        <button onclick="window.location.href='produktA-plus.html'">🔸 Boost 1m 4€</button>
+        <button onclick="window.location.href='produktA-premium.html'">💎 Discord Age 2024-2015</button>
+      </div>
+    </div>
+
+    <!-- Produkt B -->
+    <div class="card">
+      <h2>🚀 Wave Market</h2>
+      <p>Accounts &amp; Subscriptions</p>
+      <button onclick="toggleDetails('produktB-details')">🚀 Produkt wählen</button>
+      <div id="produktB-details" class="details">
+        <button onclick="window.location.href='produktB-basic.html'">🔹 Discord Real Member – Basic (10€)</button>
+        <button onclick="window.location.href='produktB-plus.html'">🔸 Spotify Premium – Plus (1.00€)</button>
+        <button onclick="window.location.href='produktB-premium.html'">💎 Crunchyroll Mega Fan 1 Monat (0.30€)</button>
+      </div>
+    </div>
+
+    <!-- Produkt C -->
+    <div class="card">
+      <h2>🎯 Wave Market</h2>
+      <p>Streaming &amp; Tools</p>
+      <button onclick="toggleDetails('produktC-details')">🎯 Produkt wählen</button>
+      <div id="produktC-details" class="details">
+        <button onclick="window.location.href='produktC-basic.html'">🔹 Disney+ 1 Monat (0.30€)</button>
+        <button onclick="window.location.href='produktC-plus.html'">🔸 Capcut Pro 1 Monat (3.00€)</button>
+        <button onclick="window.location.href='produktC-premium.html'">💎 Mullvad VPN (4.50€)</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="ticket">
+    📩 Bei Interesse einfach ein Ticket aufmachen!
+    <div>
+      <button onclick="window.open('https://discord.gg/erX2rsPE')">🎫 Ticket eröffnen</button>
+    </div>
+  </div>
+
+</body></html>
